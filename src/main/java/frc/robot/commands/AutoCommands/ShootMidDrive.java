@@ -20,7 +20,7 @@ public class ShootMidDrive extends SequentialCommandGroup {
     addCommands(
       new ShootMid(), 
       new WaitCommand(0.5),
-      new DriveTank(-0.2, -0.2, 5)
+      new DriveTank(-0.2, -0.2, 2)
     );
   }
 }

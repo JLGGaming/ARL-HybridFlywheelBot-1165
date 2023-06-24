@@ -25,8 +25,12 @@ public class Robot extends TimedRobot {
 
   private static final String kShootHighDrive = "ShootHighDrive";
   private static final String kShootMidDrive = "ShootMidDrive";
+  private static final String kShootLowDrive = "ShootLowDrive";
+
   private static final String kShootHigh = "ShootHigh";
   private static final String kShootMid = "ShootMid";
+  private static final String kShootLow = "ShootLow";
+
   private static final String kNone = "None";
 
 
@@ -39,11 +43,18 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
-    m_chooser.setDefaultOption("Shoot High & Drive", kShootHighDrive);
+
+    m_chooser.setDefaultOption("None", kNone);
+
+    m_chooser.addOption("Shoot High & Drive", kShootHighDrive);
     m_chooser.addOption("Shoot Mid & Drive", kShootMidDrive);
+    m_chooser.addOption("Shoot Low & Drive", kShootLowDrive);
+
     m_chooser.addOption("Shoot High", kShootHigh);
     m_chooser.addOption("Shoot Mid", kShootMid);
-    m_chooser.addOption("None", kNone);
+    m_chooser.addOption("Shoot Low", kShootLow);
+
+
     SmartDashboard.putData("Autonomous Program", m_chooser);
   }
 
@@ -73,7 +84,7 @@ public class Robot extends TimedRobot {
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
   public void autonomousInit() {
-    System.out.println("Running Auto ->" + m_chooser.getSelected());
+    System.out.println("Running Auto -> " + m_chooser.getSelected());
     m_autonomousCommand = m_robotContainer.getAutonomousCommand(m_chooser.getSelected());
 
     // schedule the autonomous command (example)

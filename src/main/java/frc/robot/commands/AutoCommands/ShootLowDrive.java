@@ -6,19 +6,20 @@ package frc.robot.commands.AutoCommands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
+import frc.robot.commands.DriveCommands.DriveArcade;
 import frc.robot.commands.DriveCommands.DriveTank;
-import frc.robot.commands.ShooterCommands.ShootHigh;
+import frc.robot.commands.ShooterCommands.ShootLow;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class ShootHighDrive extends SequentialCommandGroup {
-  /** Creates a new ShootDriveBack. */
-  public ShootHighDrive() {
+public class ShootLowDrive extends SequentialCommandGroup {
+  /** Creates a new ShootLowDrive. */
+  public ShootLowDrive() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new ShootHigh(), 
+      new ShootLow(), 
       new WaitCommand(0.5),
       new DriveTank(-0.2, -0.2, 2)
     );

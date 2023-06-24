@@ -22,13 +22,13 @@ public final class Constants {
   public static class DriveTrainConstants {
     public static final int kRightMotorFront = 1;
     public static final int kRightMotorBack = 2;
-    public static final int kLeftMotorFront = 3;
+    public static final int kLeftMotorFront = 6;
     public static final int kLeftMotorBack = 4;
   }
 
   public static class ShooterConstants {
-    public static final int kLeftFlywheelMotor = 5;
-    public static final int kRightFlywheelMotor = 6;
+    public static final int kRightFlywheelMotor = 5;
+    public static final int kLeftFlywheelMotor = 3;
 
     public static final double kSpeedLow = 0.4; 
     public static final double kSpeedMid= 0.6; 

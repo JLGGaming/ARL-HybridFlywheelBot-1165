@@ -14,6 +14,7 @@ import frc.robot.Constants.ShooterConstants;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 public class ShooterSubsystem extends SubsystemBase {
@@ -34,7 +35,7 @@ public class ShooterSubsystem extends SubsystemBase {
     leftFlywheelMotor.setNeutralMode(NeutralMode.Coast);
     rightFlywheelMotor.setNeutralMode(NeutralMode.Coast);
 
-    rightFlywheelMotor.setInverted(true);
+    leftFlywheelMotor.setInverted(true);
     
   }
 
@@ -61,5 +62,12 @@ public class ShooterSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("TL/FLYL %", leftFlywheelMotor.getMotorOutputPercent());
+    SmartDashboard.putNumber("TL/FLYL Amps" , leftFlywheelMotor.getMotorOutputVoltage());
+    SmartDashboard.putString("FLYL Volts/TL IdleMode" , "" + leftFlywheelMotor.getStatorCurrent());
+
+    SmartDashboard.putNumber("TR/FLYR %", rightFlywheelMotor.getMotorOutputPercent());
+    SmartDashboard.putNumber("TR/FLYR Amps" , rightFlywheelMotor.getMotorOutputVoltage());
+    SmartDashboard.putString("FLYR Volts/TL IdleMode" , "" + rightFlywheelMotor.getStatorCurrent());
   }
 }

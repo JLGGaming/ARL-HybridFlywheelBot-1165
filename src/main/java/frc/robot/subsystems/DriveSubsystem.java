@@ -9,9 +9,12 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+
+import frc.robot.RobotContainer;
 import frc.robot.Constants.DriveTrainConstants;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 public class DriveSubsystem extends SubsystemBase {
@@ -29,11 +32,13 @@ public class DriveSubsystem extends SubsystemBase {
 
   public DriveSubsystem() {
     configMotors();
+    updateSmartDashboard(true);
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    updateSmartDashboard(false);
   }
 
   private void configMotors() {
@@ -47,6 +52,14 @@ public class DriveSubsystem extends SubsystemBase {
     backLeft.setSafetyEnabled(false);
     backRight.setSafetyEnabled(false);
 
+    frontLeft.setInverted(true);
+    frontRight.setInverted(true);
+
+    frontLeft.configOpenloopRamp(0.15);
+    frontRight.configOpenloopRamp(0.15);
+    backLeft.configOpenloopRamp(0.15);
+    backRight.configOpenloopRamp(0.15);
+
     System.out.println("Motors Configured!"); 
   }
 
@@ -58,6 +71,7 @@ public class DriveSubsystem extends SubsystemBase {
 
   public void DriveTank(double left, double right) {
     drive.tankDrive(left, right);
+    
   }
   
   public CommandBase setBrakeMode() {
@@ -78,4 +92,35 @@ public class DriveSubsystem extends SubsystemBase {
     });
   }
 
+  public void updateSmartDashboard(boolean firstRun) {
+    if (firstRun) {
+      SmartDashboard.putString("TalonSRX Current Limit", "N/A");
+      SmartDashboard.putString("TalonSRX Current Limit Timeout", "N/A");
+
+      SmartDashboard.putString("SparkMAX Freespin Current Limit", "N/A");
+      SmartDashboard.putString("SparkMAX Pushing Current Limit", "N/A");
+
+      SmartDashboard.putNumber("pSpeed" , -999);
+
+      SmartDashboard.putString("Active Robot", "Speedy Scavenger | DENISE");
+    }
+
+    SmartDashboard.putNumber("FL %", frontLeft.getMotorOutputPercent());
+    SmartDashboard.putNumber("FL Volts", frontLeft.getMotorOutputVoltage());
+    SmartDashboard.putNumber("FL Amps", frontLeft.getStatorCurrent());
+
+    SmartDashboard.putNumber("FR %", frontRight.getMotorOutputPercent());
+    SmartDashboard.putNumber("FR Volts", frontRight.getMotorOutputVoltage());
+    SmartDashboard.putNumber("FR Amps", frontRight.getStatorCurrent());
+
+    SmartDashboard.putNumber("BL %", backLeft.getMotorOutputPercent());
+    SmartDashboard.putNumber("BL Volts", backLeft.getMotorOutputVoltage());
+    SmartDashboard.putNumber("BL Amps", backLeft.getStatorCurrent());
+    
+    SmartDashboard.putNumber("BR %", backRight.getMotorOutputPercent());
+    SmartDashboard.putNumber("BR Volts", backRight.getMotorOutputVoltage());
+    SmartDashboard.putNumber("BR Amps", backRight.getStatorCurrent());
+
+    SmartDashboard.updateValues(); 
+  }
 }
