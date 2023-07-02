@@ -13,13 +13,11 @@ import frc.robot.commands.ShooterCommands.ShootHigh;
 import frc.robot.commands.ShooterCommands.ShootLow;
 import frc.robot.commands.ShooterCommands.ShootMax;
 import frc.robot.commands.ShooterCommands.ShootMid;
-import frc.robot.commands.ShooterCommands.ShooterLoad;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import frc.robot.subsystems.DriveSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a

@@ -26,7 +26,7 @@ public class ShootHigh extends SequentialCommandGroup {
       new WaitCommand(0.5),
       RobotContainer.m_shooterSubsystem.retractPlunger(),
       RobotContainer.m_shooterSubsystem.setFlywheelSpeed(0),
-      RobotContainer.m_driveSubsystem.setCoastMode()
+      RobotContainer.m_driveSubsystem.setBrakeMode()
     );
   }
 }

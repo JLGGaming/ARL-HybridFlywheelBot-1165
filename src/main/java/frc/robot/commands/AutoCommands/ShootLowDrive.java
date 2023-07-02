@@ -6,7 +6,6 @@ package frc.robot.commands.AutoCommands;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
-import frc.robot.commands.DriveCommands.DriveArcade;
 import frc.robot.commands.DriveCommands.DriveTank;
 import frc.robot.commands.ShooterCommands.ShootLow;
 

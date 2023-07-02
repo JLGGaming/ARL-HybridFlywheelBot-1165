@@ -25,8 +25,7 @@ public class ShootMax extends SequentialCommandGroup {
       RobotContainer.m_shooterSubsystem.extendPlunger(),
       new WaitCommand(0.5),
       RobotContainer.m_shooterSubsystem.retractPlunger(),
-      RobotContainer.m_shooterSubsystem.setFlywheelSpeed(0),
-      RobotContainer.m_driveSubsystem.setCoastMode()
+      RobotContainer.m_shooterSubsystem.setFlywheelSpeed(0)
     );
   }
 }

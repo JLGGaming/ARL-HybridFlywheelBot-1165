@@ -20,9 +20,9 @@ public final class Constants {
   }
 
   public static class DriveTrainConstants {
-    public static final int kRightMotorFront = 1;
+    public static final int kRightMotorFront = 2;
     public static final int kRightMotorBack = 2;
-    public static final int kLeftMotorFront = 6;
+    public static final int kLeftMotorFront = 4;
     public static final int kLeftMotorBack = 4;
   }
 
@@ -30,10 +30,10 @@ public final class Constants {
     public static final int kRightFlywheelMotor = 5;
     public static final int kLeftFlywheelMotor = 3;
 
-    public static final double kSpeedLow = 0.4; 
-    public static final double kSpeedMid= 0.6; 
-    public static final double kSpeedHigh = 0.8;
-    public static final double kSpeedMax = 1.0;  
+    public static final double kSpeedLow = 0.3; 
+    public static final double kSpeedMid= 0.3945; 
+    public static final double kSpeedHigh = 0.43;
+    public static final double kSpeedMax = 0.8;  
   }
 }
 

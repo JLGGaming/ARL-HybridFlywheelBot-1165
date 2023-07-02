@@ -23,7 +23,7 @@ public class DriveArcade extends CommandBase {
   public void execute() {
     double moveSpeed = RobotContainer.m_driverController.getLeftY();
     double rotateSpeed = RobotContainer.m_driverController.getRightX();
-    RobotContainer.m_driveSubsystem.DriveArcade(moveSpeed*-1, rotateSpeed*-1);
+    RobotContainer.m_driveSubsystem.DriveArcade(moveSpeed*-1, rotateSpeed);
   }
 
   // Called once the command ends or is interrupted.
@@ -33,6 +33,7 @@ public class DriveArcade extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+  
     return false;
   }
 }

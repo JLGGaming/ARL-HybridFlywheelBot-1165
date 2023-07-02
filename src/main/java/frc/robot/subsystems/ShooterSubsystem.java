@@ -6,7 +6,6 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.wpilibj2.command.WaitCommand;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -42,7 +41,7 @@ public class ShooterSubsystem extends SubsystemBase {
   public CommandBase setFlywheelSpeed(double speed){
     return runOnce(() -> {
       leftFlywheelMotor.set(speed);
-      rightFlywheelMotor.set(speed);
+      rightFlywheelMotor.set(speed*1.15);
     });
   }
 

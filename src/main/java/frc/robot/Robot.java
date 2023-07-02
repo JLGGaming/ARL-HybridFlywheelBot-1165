@@ -44,15 +44,17 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
 
-    m_chooser.setDefaultOption("None", kNone);
+    m_chooser.setDefaultOption("Shoot Mid", kShootMid);
+
 
     m_chooser.addOption("Shoot High & Drive", kShootHighDrive);
     m_chooser.addOption("Shoot Mid & Drive", kShootMidDrive);
     m_chooser.addOption("Shoot Low & Drive", kShootLowDrive);
 
     m_chooser.addOption("Shoot High", kShootHigh);
-    m_chooser.addOption("Shoot Mid", kShootMid);
+    m_chooser.setDefaultOption("Shoot Mid", kShootMid);
     m_chooser.addOption("Shoot Low", kShootLow);
+    m_chooser.setDefaultOption("None", kNone);
 
 
     SmartDashboard.putData("Autonomous Program", m_chooser);
